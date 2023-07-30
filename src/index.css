@@ -1,0 +1,311 @@
+@tailwind base;
+@layer base {
+	html {
+	  @apply text-[#555555];
+	}
+}
+@tailwind components;
+@tailwind utilities;
+
+
+/* Bg Effect
+--------------------*/
+
+.body-bg {
+	@apply fixed top-0 left-0 right-0 bottom-0 -z-[1] pointer-events-none;
+}
+.bg-full {
+	@apply bg-[rgba(255,255,255,.2)]  backdrop-blur-[293px] fixed top-0 left-0 right-0 bottom-0 shadow-[inset_100px_-100px_100px_rgba(194,194,194,0.2),_inset_-100px_100px_100px_rgba(255,255,255,0.2)] z-10;
+}
+
+.bg-ef {
+	@apply opacity-60 w-[30vw] h-[30vw] absolute;
+}
+
+.bg-1 {
+	@apply top-0 right-0 bg-[#FD3F3F] bg-opacity-60;
+}
+.bg-2 {
+	@apply bottom-0 right-0 bg-[#F9B64D] bg-opacity-60;
+}
+.bg-3 {
+	@apply top-0 left-0 bg-[#F9417D] bg-opacity-60;
+}
+.bg-4 {
+	@apply bottom-0 left-0 bg-[#886BA1] bg-opacity-60;
+}
+
+/* Btn
+--------------------*/
+.btn {
+	@apply px-[30px] py-[18px] text-[14px] uppercase font-[500] ease-in duration-300 inline-flex items-center justify-center rounded-md;
+}
+
+.btn.btn-sm {
+  @apply px-[0.6rem] py-[0.25rem] text-[0.875rem];
+}
+
+.btn .btn-icon {
+	@apply ml-4;
+}
+.btn .btn-icon:first-child {
+	@apply ml-0 mr-4;
+}
+
+.btn-primary {
+	@apply bg-blue-600 text-white hover:bg-black;
+}
+
+.btn-dark {
+	@apply bg-black text-white hover:bg-blue-600;
+}
+
+
+/* Card
+--------------------*/
+.card {
+	@apply bg-white rounded-[12px] shadow-md;
+}
+.card .card-header {
+	@apply py-4 px-6 border-b;
+}
+.card .card-body {
+	@apply p-6;
+}
+
+.card .card-header-title {
+	@apply font-[600] text-black text-[22px];
+}
+
+.card .card-footer {
+    @apply py-4 px-6 border-t;
+}
+
+/* Form
+------------------------------*/
+.form-label {
+	@apply inline-block pb-1 text-gray-700;
+}
+.form-control {
+	@apply block w-full px-[.75rem] py-[.75rem] text-[1rem] text-black bg-white border border-gray-300 rounded-md outline-none focus:border-blue-500 outline-none;
+}
+.form-control.disabled,
+.form-control[disabled] {
+  @apply bg-gray-100;
+}
+.form-control-sm {
+  @apply px-[.35rem] py-[.35rem] text-sm rounded;
+}
+
+/* .form-select {
+	@apply block w-full px-[.75rem] py-[.75rem] text-[1rem] text-black bg-white border border-gray-300 rounded-md outline-none focus:border-blue-500 appearance-none;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: calc(100% - 15px) center;
+} */
+
+/* Dropdown
+------------------------------*/
+.dropdown {
+  @apply relative;
+}
+.dropdown-menu {
+  @apply absolute top-[100%] bg-white shadow-md px-3 py-2 rounded-md min-w-[10rem] hidden;
+}
+
+.dropdown-menu.show {
+	@apply block;
+}
+
+.dropdown-item {
+  @apply px-3 py-2 block rounded-md hover:bg-blue-100 hover:text-blue-600 my-2 whitespace-nowrap;
+}
+
+.dropdown-item.active {
+  @apply bg-blue-100 text-blue-600;
+}
+
+.dropdown-menu-start {
+  @apply left-0;
+}
+.dropdown-menu-end {
+  @apply right-0;
+}
+
+
+/* Root
+------------------------------*/
+html,
+body {
+  @apply h-full w-full;
+}
+.app-root {
+  @apply flex flex-col min-h-full w-full;
+}
+.app-root > * {
+  flex: 0 0 auto;
+}
+.app-root > .app-wrapper {
+  flex: 1 0 auto;
+}
+
+/* Header
+------------------------------*/
+.app-header {
+  @apply flex bg-white shadow-md py-4 px-5 items-center rounded-[0_0_10px_10px];
+}
+.app-header .logo img {
+  @apply max-h-[40px];
+}
+.app-header .h-left {
+  @apply flex items-center;
+}
+.app-header .h-right {
+  @apply ml-auto;
+}
+.app-header .h-right .dropdown-toggle:after {
+  content: normal;
+}
+.h-menu-toggle {
+  @apply relative mr-3 pr-3 border-r border-gray-300;
+}
+.h-menu-toggle .menu_toggle {
+  @apply w-[40px] h-[40px] flex items-center justify-center bg-blue-100 text-blue-700;
+}
+
+/* Side Menu toggle
+------------------------------*/
+.app-sidebar {
+  @apply bg-white shadow-md rounded-md p-4  absolute top-[86px] -left-[250px] bottom-0 z-10 w-[200px] duration-300 ease-in-out xl:z-0 xl:left-0 xl:top-0 xl:relative xl:flex xl:flex-[0_0_250px] xl:w-[250px];
+}
+
+.hide-menu + .app-wrapper .app-sidebar {
+	@apply flex left-0 xl:left-0 xl:hidden;
+}
+.hide-menu + .app-wrapper .app-main {
+	@apply flex-[0_0_100%] max-w-[100%] pl-0;
+}
+
+.app-main {
+  @apply flex-[0_0_100%] max-w-[100%] pl-0;
+}
+.app-sidebar ~ .app-main {
+  @apply xl:flex-[0_0_calc(100%_-_250px)] xl:max-w-[calc(100%_-_250px)] xl:pl-4;
+}
+
+/* app wrapper
+------------------------------*/
+.app-wrapper {
+  @apply p-4 flex;
+}
+
+.menu-item > .menu-link {
+  @apply py-2;
+}
+.menu-item .menu-link {
+  @apply flex cursor-pointer font-[500];
+}
+.menu-item .menu-link .menu-icon {
+  @apply mr-3;
+}
+.menu-item .menu-link .menu-arrow {
+  @apply ml-auto;
+}
+.menu-sub {
+  @apply border-l border-dashed border-gray-300 py-2 pl-5 ml-3;
+}
+.menu-sub .menu-link {
+  @apply py-2 text-sm font-[400];
+}
+
+.table-scrollable {
+  @apply overflow-x-auto relative;
+}
+
+.table {
+  @apply w-full text-sm text-left text-gray-500 border-collapse border-inherit;
+}
+.table thead {
+  @apply text-xs text-gray-700 uppercase;
+}
+.table thead tr {
+  @apply bg-gray-100;
+}
+.table td,
+.table th {
+  @apply py-3 px-6 cursor-pointer;
+}
+.table tr {
+  @apply bg-white border-b hover:bg-gray-100;
+}
+
+.sorting {
+  @apply w-full flex pr-[40px] relative after:absolute before:absolute before:content-['_▲'] after:content-['_▼'] cursor-pointer;
+}
+
+.sorting::before,
+.sorting::after {
+  @apply absolute block opacity-[0.125] right-0 leading-[11px] text-[0.8rem];
+}
+.sorting::before {
+  @apply bottom-[50%];
+}
+.sorting::after {
+  @apply top-[50%];
+}
+
+.sorting.sorting_asc::before {
+  @apply opacity-100;
+}
+.sorting.sorting_desc::after {
+  @apply opacity-100;
+}
+
+
+/**Pagination CSS Start**/
+.pagination li {
+    margin: 0px 2px;
+}
+
+.pagination li:first-child a, .pagination li:last-child a {
+    font-size: 27px;
+    line-height: 1;
+    background-color: #1d1d1d;
+}
+
+.pagination li:nth-child(2) a, .pagination li:nth-last-child(2) a {
+    background-color: #363636;
+}
+
+ul.pagination {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+.pagination li a {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.9;
+    color: #fff;
+    background-color: #7c7c7c;
+    font-size: 16px;
+}
+
+.pagination li.active a {
+    background-color: #000;
+}
+
+.pagination li.disabled a {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/**Pagination CSS End**/
